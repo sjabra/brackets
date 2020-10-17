@@ -10,14 +10,10 @@ module.exports = function check(str, bracketsConfig) {
             let closingBracketIndex = closingBrackets.indexOf(nextBracket); 
             if (bracketsStack[bracketsStack.length - 1] == openingBrackets[closingBracketIndex]) {
                 bracketsStack.pop();
-                continue;
             } else {
                 bracketsStack.push(nextBracket);
-                continue;
             }
-        }
-
-        if (openingBrackets.includes(nextBracket)) {
+        } else if (openingBrackets.includes(nextBracket)) {
             bracketsStack.push(nextBracket);
         }
     }
