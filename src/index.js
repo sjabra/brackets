@@ -4,17 +4,17 @@ module.exports = function check(str, bracketsConfig) {
     let bracketsStack = [];
 
     for (let i = 0; i < str.length; i++) {
-        const nextBracket = str.charAt(i);
+        const curBracket = str.charAt(i);
         
-        if (closingBrackets.includes(nextBracket)) {
-            let closingBracketIndex = closingBrackets.indexOf(nextBracket); 
+        if (closingBrackets.includes(curBracket)) {
+            let closingBracketIndex = closingBrackets.indexOf(curBracket); 
             if (bracketsStack[bracketsStack.length - 1] == openingBrackets[closingBracketIndex]) {
                 bracketsStack.pop();
             } else {
-                bracketsStack.push(nextBracket);
+                bracketsStack.push(curBracket);
             }
-        } else if (openingBrackets.includes(nextBracket)) {
-            bracketsStack.push(nextBracket);
+        } else if (openingBrackets.includes(curBracket)) {
+            bracketsStack.push(curBracket);
         }
     }
 
